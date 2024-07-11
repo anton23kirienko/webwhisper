@@ -6,9 +6,8 @@ module.exports = {
   mode: "production",
   target: "web",
   entry: {
-    contentScript: "./src/content/index.ts",
+    content: "./src/content/index.ts",
     background: "./src/background/index.ts",
-    react: "./src/react/index.tsx",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -16,9 +15,9 @@ module.exports = {
     clean: true,
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/index.html",
-    }),
+    // new HtmlWebpackPlugin({
+    //   template: "./src/index.html",
+    // }),
     new CopyPlugin({
       patterns: [
         {

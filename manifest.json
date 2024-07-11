@@ -1,18 +1,25 @@
 {
   "manifest_version": 3,
-  "name": "Create a Chrome Extension with React and Webpack",
-  "description": "Demo Chrome Extension that uses React and Webpack",
-  "version": "1.0.0",
+  "name": "Extension Auth Example",
+  "version": "1.0",
+  "description": "This extension is an example of a cookie based auth aproach.",
+  "permissions": ["storage", "cookies"],
+  "host_permissions": ["https://jsonplaceholder.typicode.com/*"],
   "action": {
-    "default_popup": "index.html"
+    "default_title": "Click"
   },
   "background": {
     "service_worker": "background.js"
   },
+
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["contentScript.js"]
+      "matches": [
+        "https://google.com/*",
+        "https://www.google.com/*",
+        "http://localhost/*"
+      ],
+      "js": ["content.js"]
     }
   ]
 }

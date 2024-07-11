@@ -39,7 +39,11 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/webextension-polyfill": "^0.10.7",
+    "axios": "^1.7.2",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "webextension-polyfill": "^0.12.0"
   }
 }
