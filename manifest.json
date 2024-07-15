@@ -3,23 +3,10 @@
   "name": "Extension Auth Example",
   "version": "1.0",
   "description": "This extension is an example of a cookie based auth aproach.",
-  "permissions": ["storage", "cookies"],
-  "host_permissions": ["https://jsonplaceholder.typicode.com/*"],
-  "action": {
-    "default_title": "Click"
-  },
+  "permissions": ["storage", "cookies", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "action": {},
   "background": {
     "service_worker": "background.js"
-  },
-
-  "content_scripts": [
-    {
-      "matches": [
-        "https://google.com/*",
-        "https://www.google.com/*",
-        "http://localhost/*"
-      ],
-      "js": ["content.js"]
-    }
-  ]
+  }
 }

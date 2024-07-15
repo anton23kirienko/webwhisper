@@ -31,3 +31,12 @@ export const sendRequest = async ({
   const { message, ...error } = res.error;
   throw new RequestError(message, error);
 };
+
+// How to use:
+// sendRequest({ method: "get", url: `${PLACEHOLDER_BASE_URL}/todos/1` })
+//   .then((response) => {
+//     console.log("DEBUGGER[CONTENT_SCRIPT]", response);
+//   })
+//   .catch((error) => {
+//     console.error("DEBUGGER[CONTENT_SCRIPT]:", error);
+//   });
