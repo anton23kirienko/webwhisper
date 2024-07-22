@@ -1,35 +1,20 @@
-import { AxiosRequestConfig } from "axios";
 import browser from "webextension-polyfill";
 
-export type SendRequestProps = {
-  method: "get" | "post" | "put" | "delete";
-  url: string;
-  data?: any;
-  axiosConfig?: AxiosRequestConfig;
-};
+import {
+  MessageType,
+  BackgroundRequestMessage,
+  BackgroundResponse,
+} from "../../types";
 
-export type SendRequestResponse = {
-  data: any;
-  status: number;
-  statusText: string;
-};
-
-export class RequestError extends Error {
-  constructor(message: string, public data: any) {
-    super(message);
-  }
-}
-
-export const sendRequest = async ({
-  ...props
-}: SendRequestProps): Promise<SendRequestResponse> => {
-  const res = await browser.runtime.sendMessage({
-    eventName: "makeRequest",
-    payload: props,
+export const sendPageRequest = async (
+  payload: BackgroundRequestMessage["payload"]
+): Promise<BackgroundResponse> => {
+  const response: BackgroundResponse = await browser.runtime.sendMessage({
+    type: MessageType.MakeRequest,
+    payload,
   });
-  if (res.success) return res.data;
-  const { message, ...error } = res.error;
-  throw new RequestError(message, error);
+
+  return response;
 };
 
 // How to use:

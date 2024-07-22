@@ -9,8 +9,8 @@ export const onBrowserActionClicked = (tab: Tabs.Tab) => {
   }
   if (!ALLOWED_PROTOCOLS.some((prot) => tab.url?.startsWith(prot))) {
     console.log(
-      "Forbidden protocol is being used, supported protocols: ",
-      ALLOWED_PROTOCOLS
+      "onBrowserActionClicked() - forbidden protocol is being used, supported protocols: ",
+      JSON.stringify(ALLOWED_PROTOCOLS)
     );
   }
 
